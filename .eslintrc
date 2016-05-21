@@ -1,0 +1,53 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb/base",
+  "plugins": [
+    "babel"
+  ],
+  "env": {
+    "node": true
+  },
+  "root": true,
+  "rules": {
+    // Disable disallow strict mode because we use babel
+    "strict": 0,
+    // Disallow dangling commas
+    "comma-dangle": [2, "never"],
+    // Disable require function expressions to have a name
+    "func-names": 0,
+    // Disable require variable declarations to be at the top of their scope
+    "vars-on-top": 0,
+    // Disallow unused variables with exception for arguments
+    "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+    // Allow reassignment of function parameters with warning
+    "no-param-reassign": 1,
+    // Disallow one variable declaration per scope with exception for uninitialized vars
+    "one-var": [2, { "uninitialized": "always" }],
+    // Disallow usage of expressions in statement position with exception for ternary
+    "no-unused-expressions": [2, {"allowTernary": true}],
+    // Disable enforce padding within blocks
+    "padded-blocks": 0,
+    // Specify the maximum length of a line in your program
+    "max-len": [2, 120, 2, { "ignoreUrls": true, "ignoreComments": false }],
+    // Disable require braces in arrow function body
+    "arrow-body-style": 0,
+    // Disable require Ccnstructors to use initial caps in favor of the next rule
+    "new-cap": 0,
+    // Require a capital letter for constructors but ignore @Decorator
+    "babel/new-cap": 1,
+    // Disable disallow return before else
+    "no-else-return": 0,
+    // Disable disallow early use
+    "no-use-before-define": 0,
+    // Disable disallow shadowing
+    "no-shadow": 0,
+    // Disable disallow use of console
+    "no-console": 0,
+    // Disable enforce require() on the top-level module scope
+    "global-require": 0,
+    // Disable disallow Dangling Underscores in Identifiers
+    "no-underscore-dangle": 0,
+    // Disable Newline Per Chained Method Call
+    "newline-per-chained-call": 0
+  }
+}
