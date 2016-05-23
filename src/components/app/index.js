@@ -1,25 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import '../../assets/css/main.scss';
-import { Component } from '@angular/core';
-import { RouteConfig } from '@angular/router-deprecated';
+import angular from 'angular';
+import template from './app.html';
+import config from './config';
 
-import { HomeComponent } from '../home';
+const app = angular.module('app.app', []);
+app.component('app', { template });
+app.config(config);
 
-@Component({
-  selector: 'app',
-  pipes: [],
-  providers: [],
-  directives: [],
-  styles: [require('./app.scss')],
-  template: require('./app.html')
-})
-@RouteConfig([
-  {
-    path: '/',
-    name: 'Home',
-    component: HomeComponent,
-    useAsDefault: true
-  }
-])
-export class App {
-}
+export default app;

@@ -1,12 +1,8 @@
-import { Component } from '@angular/core';
+/* eslint-disable import/no-unresolved */
+import angular from 'angular';
+import template from './home.html';
 
-@Component({
-  selector: 'home',
-  providers: [],
-  directives: [],
-  pipes: [],
-  styles: [require('./home.scss')],
-  template: require('./home.html')
-})
-export class Home {
-}
+const home = angular.module('app.home', []);
+home.component('home', { template });
+
+export default home;

@@ -74,9 +74,8 @@ export default (() => {
   //
   // See: http://webpack.github.io/docs/configuration.html#entry
   config.entry = IS_TEST ? {} : {
-    polyfills: `./${CLIENT_DIR}/polyfills.js`,
     vendor: `./${CLIENT_DIR}/vendor.js`,
-    main: `./${CLIENT_DIR}/main.browser.js`
+    main: `./${CLIENT_DIR}/app.js`
   };
 
   // Options affecting the output of the compilation.
@@ -216,8 +215,6 @@ export default (() => {
     })(),
 
     noParse: [
-      root('zone.js', 'dist'),
-      root('angular2', 'bundles')
     ]
 
   };
@@ -254,7 +251,7 @@ export default (() => {
         // See: https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin
         // See: https://github.com/webpack/docs/wiki/optimization#multi-page-app
         new CommonsChunkPlugin({
-          name: ['polyfills', 'vendor'].reverse()
+          name: ['vendor'].reverse()
         }),
 
         // CopyWebpackPlugin
@@ -275,7 +272,7 @@ export default (() => {
         // See: https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
           template: `${CLIENT_DIR}/index.html`,
-          chunksSortMode: packageSort(['polyfills', 'vendor', 'main'])
+          chunksSortMode: packageSort(['vendor', 'main'])
         }),
 
         // ExtractTextPlugin
