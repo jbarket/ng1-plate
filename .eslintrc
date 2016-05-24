@@ -20,7 +20,7 @@
     // Disallow unused variables with exception for arguments
     "no-unused-vars": [2, {"vars": "all", "args": "none"}],
     // Allow reassignment of function parameters with warning
-    "no-param-reassign": 1,
+    "no-param-reassign": 0,
     // Disallow one variable declaration per scope with exception for uninitialized vars
     "one-var": [2, { "uninitialized": "always" }],
     // Disallow usage of expressions in statement position with exception for ternary
@@ -48,6 +48,7 @@
     // Disable disallow Dangling Underscores in Identifiers
     "no-underscore-dangle": 0,
     // Disable Newline Per Chained Method Call
-    "newline-per-chained-call": 0
+    "newline-per-chained-call": 0,
+    "brace-style": [1, "stroustrup"]
   }
 }
