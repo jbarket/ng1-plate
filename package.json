@@ -33,6 +33,7 @@
     "lodash": "^4.11.1"
   },
   "devDependencies": {
+    "karma-es6-shim": "^1.0.0",
     "file-loader": "^0.8.5",
     "url-loader": "^0.5.7",
     "autoprefixer": "^6.3.6",

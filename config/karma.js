@@ -8,7 +8,7 @@ export default (config) => {
 
     // Frameworks to use.
     // Available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'es6-shim'],
 
     // List of files / patterns to load in the browser we are building the test environment in ./karma-shim.js.
     files: [
