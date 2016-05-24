@@ -107,9 +107,15 @@ export function packageSort(packages) {
 export function loadEnvironmentVariables() {
   const envVars = {};
 
-  forEach(require(root('.env')), (value, key) => {
-    envVars[key] = JSON.stringify(value);
-  });
+  const envFile = require(root('.env'));
+
+  if (envFile[ENV]) {
+
+    forEach(envFile[ENV], (value, key) => {
+      envVars[key] = JSON.stringify(value);
+    });
+
+  }
 
   return envVars;
 }
