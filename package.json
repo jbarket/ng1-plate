@@ -33,6 +33,8 @@
     "lodash": "^4.11.1"
   },
   "devDependencies": {
+    "ng-annotate": "^1.2.1",
+    "ng-annotate-loader": "^0.1.0",
     "karma-es6-shim": "^1.0.0",
     "file-loader": "^0.8.5",
     "url-loader": "^0.5.7",

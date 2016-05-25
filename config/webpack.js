@@ -58,9 +58,11 @@ export default (() => {
   // See: https://github.com/webpack/karma-webpack#source-maps
   if (IS_PROD) {
     config.devtool = 'source-map';
-  } else if (IS_TEST) {
+  }
+  else if (IS_TEST) {
     config.devtool = 'inline-source-map';
-  } else {
+  }
+  else {
     config.devtool = 'cheap-module-eval-source-map';
   }
 
@@ -102,58 +104,18 @@ export default (() => {
   // See: http://webpack.github.io/docs/configuration.html#module
   config.module = {
 
-    preLoaders: (() => {
-      const preLoaders = [];
-
-      if (IS_PROD) {
-        preLoaders.push(
-
-          // Lints css with PostCSS.
-          {
-            test: /\.css$/,
-            loader: 'postcss?pack=lint',
-            exclude: [/node_modules/, /vendor/]
-          },
-
-          // Lints scss with PostCSS.
-          {
-            test: /\.scss$/,
-            loader: 'postcss?pack=lint&syntax=postcss-scss',
-            exclude: [/node_modules/, /vendor/]
-          }
-        );
-      }
-
-      if (IS_PROD) {
-        preLoaders.push(
-
-          // Eslint loader support for *.js files
-          {
-            test: /\.js$/,
-            loader: 'eslint',
-            exclude: /node_modules/
-          }
-        );
-      }
-
-      return preLoaders;
-    })(),
-
     loaders: [
 
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?(\?.*$|$)/, loader: "file" },
-      { test: /\.(woff|woff2)(\?.*$|$)/, loader:"url?prefix=font/&limit=5000" },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?(\?.*$|$)/, loader: "url?limit=10000&mimetype=application/octet-stream" },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?(\?.*$|$)/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?(\?.*$|$)/, loader: 'file' },
+      { test: /\.(woff|woff2)(\?.*$|$)/, loader: 'url?prefix=font/&limit=5000' },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?(\?.*$|$)/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?(\?.*$|$)/, loader: 'url?limit=10000&mimetype=image/svg+xml' },
 
 
       // Transpile .js files with babel.
       {
         test: /\.js?$/,
-        loader: 'babel',
-        query: {
-          cacheDirectory: IS_DEV
-        },
+        loaders: ['ng-annotate', `babel?cacheDirectory=${IS_DEV}`],
         exclude: /node_modules/
       },
 
@@ -197,7 +159,7 @@ export default (() => {
         test: /\.html$/,
         loader: 'raw',
         exclude: [root(CLIENT_DIR, 'index.html')]
-      },
+      }
 
     ],
 

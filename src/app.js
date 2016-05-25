@@ -16,20 +16,18 @@ const App = angular.module('app', [
   home.name
 ]);
 
+/* @ngInject */
 function config($locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/');
 }
 
-config.$inject = ['$locationProvider', '$urlRouterProvider'];
-
 App.config(config);
 
+/* @ngInject */
 function run($http) {
-  $http.defaults.headers.common['Accept'] = 'application/json';
+  $http.defaults.headers.common.Accept = 'application/json';
   $http.defaults.headers.common['Content-Type'] = 'application/json';
 }
-
-run.$inject = ['$http'];
 
 App.run(run);

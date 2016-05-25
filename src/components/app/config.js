@@ -1,3 +1,4 @@
+/* @ngInject */
 function config($stateProvider) {
   $stateProvider
     .state('index', { url: '/', template: '<home></home>' });

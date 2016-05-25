@@ -1,3 +1,4 @@
+/* @ngInject */
 class NavBar {
   constructor() {
   }
